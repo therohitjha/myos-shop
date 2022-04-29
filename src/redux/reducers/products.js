@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const productsSlice = createSlice({
   name: "products",
   initialState: {
+    products: [],
+    selectedProduct: {},
     user: "Rohit",
     quantity: 0,
     cartItems: [],
@@ -10,6 +12,12 @@ const productsSlice = createSlice({
     search: "",
   },
   reducers: {
+    setProducts: (state, { payload }) => {
+      state.products = payload;
+    },
+    setSelectedProducts: (state, { payload }) => {
+      state.selectedProduct = payload;
+    },
     addToCart: (state, { payload }) => {
       const isExistItem = state.cartItems.find(
         (item) => item.id === payload.id
@@ -73,6 +81,8 @@ const productsSlice = createSlice({
 });
 
 export const {
+  setProducts,
+  setSelectedProducts,
   addToCart,
   removeFromCart,
   addItemQuantity,

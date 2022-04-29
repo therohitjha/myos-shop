@@ -1,15 +1,14 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/reducers/products";
+import { addToCart, setSelectedProducts } from "../redux/reducers/products";
 import { get } from "../api/api";
 import "../styles/SingleProduct.css";
 import Loading from "./Loading";
 const Products = lazy(() => import("./Products"));
 
 const SingleProduct = () => {
-  const [product, setProduct] = useState({});
-  const { search } = useSelector((state) => state.products);
+  const { selectedProduct } = useSelector((state) => state.products);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const SingleProduct = () => {
     const fetchProduct = async () => {
       try {
         const { data } = await get(`products/${id}`);
-        setProduct(data);
+        dispatch(setSelectedProducts(data));
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
@@ -27,17 +26,13 @@ const SingleProduct = () => {
     fetchProduct();
   }, [id]);
 
-  const { title, price, description, category, image } = product;
+  const { title, price, description, category, image } = selectedProduct;
 
   if (isLoading) {
     return <Loading />;
   }
 
-  return search ? (
-    <Suspense fallback={<Loading />}>
-      <Products />
-    </Suspense>
-  ) : (
+  return (
     <div className="SingleProduct container">
       <div className="left-div container">
         <img src={image} alt={title} />

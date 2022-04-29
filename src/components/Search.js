@@ -1,17 +1,21 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { searchItems } from "../redux/reducers/products";
 import "../styles/Search.css";
 
 function Search() {
   const [search, setSearch] = useState("");
+  const { selectedProduct } = useSelector((state) => state.products);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="search">
       <form
         onSubmit={(e) => {
           e.preventDefault();
+          navigate("/");
           dispatch(searchItems(search));
         }}
       >

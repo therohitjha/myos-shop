@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/reducers/products";
+import { addToCart, setProducts } from "../redux/reducers/products";
 import { get } from "../api/api";
 import "../styles/Products.css";
 import Loading from "./Loading";
 
 const Products = () => {
-  const { search } = useSelector((state) => state.products);
-  const [products, setProducts] = useState([]);
+  const { search, products } = useSelector((state) => state.products);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         const { data } = await get("products");
-        setProducts(data);
+        dispatch(setProducts(data));
         setIsLoading(false);
       } catch (err) {
         console.log(err.message);
