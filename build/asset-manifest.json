@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/myos-shop/static/css/main.c0e556de.css",
+    "main.js": "/myos-shop/static/js/main.2007decc.js",
+    "index.html": "/myos-shop/index.html",
+    "main.c0e556de.css.map": "/myos-shop/static/css/main.c0e556de.css.map",
+    "main.2007decc.js.map": "/myos-shop/static/js/main.2007decc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0e556de.css",
+    "static/js/main.2007decc.js"
+  ]
+}
