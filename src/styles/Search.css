@@ -1,0 +1,13 @@
+.search > form > button {
+  padding: 0.5rem;
+  background-color: orangered;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.search > form > button:hover {
+  background-color: red;
+}

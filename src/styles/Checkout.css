@@ -1,0 +1,26 @@
+.checkout-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 25px;
+  background-color: #fff;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 5rem !important;
+  align-items: center;
+}
+
+.checkout-success {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 25px;
+  background-color: #fff;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 5rem !important;
+  align-items: center;
+  color: green;
+}
