@@ -42,7 +42,7 @@ const SingleProduct = () => {
         <h3 className="category">{category}</h3>
         <p className="description">{description}</p>
         <p className="price">₤{price}</p>
-        <button onClick={() => dispatch(addToCart(product))}>
+        <button onClick={() => dispatch(addToCart(selectedProduct ))}>
           Add to cart
         </button>
       </div>
